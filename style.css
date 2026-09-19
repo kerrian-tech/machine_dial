@@ -1,0 +1,537 @@
+/* =========================================================
+   MACHINIST DIAL CALCULATOR
+   ========================================================= */
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100%;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #11100f;
+    color: #eeeeee;
+}
+
+
+body {
+    min-height: 100vh;
+}
+
+
+button,
+input {
+    font: inherit;
+}
+
+
+button {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 0 auto;
+    padding: 20px 16px 30px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+
+.header h1 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+
+.header p {
+    margin: 5px 0 0;
+
+    color: #999999;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.label {
+    color: #999999;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   MAIN DIAL
+   ========================================================= */
+
+.dial-section {
+    text-align: center;
+
+    background: #1b1a18;
+
+    border: 1px solid #353330;
+    border-radius: 16px;
+
+    padding: 22px 15px 20px;
+
+    margin-bottom: 12px;
+}
+
+
+.dial-display {
+    margin-top: 5px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 76px;
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #ffffff;
+}
+
+
+.dial-unit {
+    margin-top: 7px;
+
+    color: #777777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MOVEMENT DISPLAY
+   ========================================================= */
+
+.movement-section {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+.movement-column {
+    background: #1b1a18;
+
+    border: 1px solid #353330;
+    border-radius: 12px;
+
+    padding: 15px;
+
+    text-align: center;
+}
+
+
+.movement-display {
+    margin-top: 7px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
+.controls {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+.control-group {
+    background: #181715;
+
+    border-radius: 12px;
+
+    padding: 12px;
+}
+
+
+.control-group h2 {
+    margin: 0 0 10px;
+
+    text-align: center;
+
+    font-size: 12px;
+    letter-spacing: 1.5px;
+
+    color: #999999;
+}
+
+
+.button-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.move-button {
+    border: 0;
+    border-radius: 9px;
+
+    min-height: 58px;
+
+    background: #292825;
+
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.move-button:active {
+    transform: scale(0.96);
+    background: #3a3834;
+}
+
+
+/* =========================================================
+   CUSTOM MOVEMENT
+   ========================================================= */
+
+.custom-section {
+    background: #1b1a18;
+
+    border: 1px solid #353330;
+    border-radius: 12px;
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+}
+
+
+.custom-row {
+    display: grid;
+
+    grid-template-columns: 1.3fr 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 10px;
+}
+
+
+.custom-row input {
+    width: 100%;
+
+    min-width: 0;
+
+    border: 1px solid #45433f;
+    border-radius: 9px;
+
+    background: #11100f;
+    color: #ffffff;
+
+    padding: 12px;
+
+    font-size: 20px;
+    text-align: center;
+
+    outline: none;
+}
+
+
+.custom-row input:focus {
+    border-color: #77736d;
+}
+
+
+.custom-button {
+    border: 0;
+    border-radius: 9px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    min-height: 52px;
+}
+
+
+.custom-button:active {
+    transform: scale(0.96);
+}
+
+
+.backward {
+    background: #302422;
+}
+
+
+.forward {
+    background: #242c25;
+}
+
+
+/* =========================================================
+   STARTING POSITION
+   ========================================================= */
+
+.starting-section {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    background: #1b1a18;
+
+    border: 1px solid #353330;
+    border-radius: 12px;
+
+    padding: 13px 15px;
+
+    margin-bottom: 12px;
+}
+
+
+.starting-section strong {
+    display: block;
+
+    margin-top: 3px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 22px;
+}
+
+
+.zero-button {
+    border: 1px solid #484640;
+    border-radius: 8px;
+
+    background: #292825;
+    color: #ffffff;
+
+    padding: 10px 12px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.zero-button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+.reset-button {
+    width: 100%;
+
+    min-height: 48px;
+
+    border: 1px solid #3e3c38;
+    border-radius: 9px;
+
+    background: transparent;
+    color: #888888;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+
+.reset-button:active {
+    background: #211f1d;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    text-align: center;
+
+    color: #555555;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .app {
+        padding: 15px 10px 25px;
+    }
+
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+
+    .dial-display {
+        font-size: 64px;
+    }
+
+
+    .move-button {
+        min-height: 52px;
+        font-size: 18px;
+    }
+
+
+    .zero-button {
+        padding: 9px;
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   CUSTOM MOVEMENT HEADER
+   ========================================================= */
+
+.custom-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.keep-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #999999;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+.keep-option input {
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    accent-color: #888888;
+}
+
+
+.starting-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.starting-input-group input {
+    width: 75px;
+
+    border: 1px solid #45433f;
+    border-radius: 8px;
+
+    background: #11100f;
+    color: #ffffff;
+
+    padding: 8px;
+
+    font-family: "Courier New", monospace;
+    font-size: 22px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+.starting-input-group input:focus {
+    outline: none;
+    border-color: #77736d;
+}

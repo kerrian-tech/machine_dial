@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,
+                 initial-scale=1.0,
+                 maximum-scale=1.0,
+                 user-scalable=no"
+    >
+
+    <meta
+        name="theme-color"
+        content="#1b1a18"
+    >
+
+    <title>Machinist Dial Calculator</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1>Machinist Dial</h1>
+            <p>0.001" Hand Wheel Calculator</p>
+        </header>
+
+
+        <!-- CURRENT DIAL -->
+        <section class="dial-section">
+
+            <div class="label">
+                CURRENT DIAL
+            </div>
+
+            <div
+                id="dialDisplay"
+                class="dial-display"
+            >
+                00
+            </div>
+
+            <div class="dial-unit">
+                thousandths
+            </div>
+
+        </section>
+
+
+        <!-- MOVEMENT -->
+        <section class="movement-section">
+
+            <div class="movement-column">
+
+                <div class="label">
+                    TOTAL MOVEMENT
+                </div>
+
+                <div
+                    id="movementDisplay"
+                    class="movement-display"
+                >
+                    0 th
+                </div>
+
+            </div>
+
+
+            <div class="movement-column">
+
+                <div class="label">
+                    DIAMETER INCH
+                </div>
+
+                <div
+                    id="inchDisplay"
+                    class="movement-display"
+                >
+                    0.000"
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK BUTTONS -->
+        <section class="controls">
+
+            <div class="control-group">
+
+                <h2>BACKWARD</h2>
+
+                <div class="button-grid">
+
+                    <button
+                        class="move-button backward"
+                        onclick="moveDial(-0.5)"
+                    >
+                        −0.5
+                    </button>
+
+                    <button
+                        class="move-button backward"
+                        onclick="moveDial(-4)"
+                    >
+                        −4
+                    </button>
+
+                    <button
+                        class="move-button backward"
+                        onclick="moveDial(-8)"
+                    >
+                        −8
+                    </button>
+
+                    <button
+                        class="move-button backward"
+                        onclick="moveDial(-25)"
+                    >
+                        −25
+                    </button>
+
+                    <button
+                        class="move-button backward"
+                        onclick="moveDial(-50)"
+                    >
+                        −50
+                    </button>
+
+                    <button
+                        class="move-button backward"
+                        onclick="moveDial(-500)"
+                    >
+                        −500
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="control-group">
+
+                <h2>FORWARD</h2>
+
+                <div class="button-grid">
+
+                    <button
+                        class="move-button forward"
+                        onclick="moveDial(0.5)"
+                    >
+                        +0.5
+                    </button>
+
+                    <button
+                        class="move-button forward"
+                        onclick="moveDial(4)"
+                    >
+                        +4
+                    </button>
+
+                    <button
+                        class="move-button forward"
+                        onclick="moveDial(8)"
+                    >
+                        +8
+                    </button>
+
+                    <button
+                        class="move-button forward"
+                        onclick="moveDial(25)"
+                    >
+                        +25
+                    </button>
+
+                    <button
+                        class="move-button forward"
+                        onclick="moveDial(50)"
+                    >
+                        +50
+                    </button>
+
+                    <button
+                        class="move-button forward"
+                        onclick="moveDial(500)"
+                    >
+                        +500
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CUSTOM MOVEMENT -->
+        <!-- CUSTOM MOVEMENT -->
+<section class="custom-section">
+
+    <div class="custom-header">
+
+        <div class="label">
+            CUSTOM MOVEMENT
+        </div>
+
+        <label class="keep-option">
+            <input
+                type="checkbox"
+                id="keepMovement"
+            >
+            <span>KEEP</span>
+        </label>
+
+    </div>
+
+
+    <div class="custom-row">
+
+        <input
+            id="movementInput"
+            type="number"
+            inputmode="numeric"
+            min="0"
+            placeholder="thou"
+        >
+
+        <button
+            class="custom-button backward"
+            onclick="customMove('backward')"
+        >
+            BACK
+        </button>
+
+        <button
+            class="custom-button forward"
+            onclick="customMove('forward')"
+        >
+            FWD
+        </button>
+
+    </div>
+
+</section>
+
+
+        <!-- STARTING POSITION -->
+<section class="starting-section">
+
+    <div class="starting-input-group">
+
+        <label
+            class="label"
+            for="startDialInput"
+        >
+            DIAL @
+        </label>
+
+        <input
+            id="startDialInput"
+            type="number"
+            inputmode="numeric"
+            min="0"
+            max="99"
+            value="0"
+        >
+
+    </div>
+
+    <button class="zero-button" onclick="resetMovement()">
+    RESET TM
+</button>
+
+<button class="zero-button" onclick="resetInches()">
+    RESET DIAM
+</button>
+
+</section>
+
+
+        <!-- RESET -->
+        <button
+            class="reset-button"
+            onclick="resetAll()"
+        >
+            RESET EVERYTHING
+        </button>
+
+
+        <!-- FOOTER -->
+        <footer>
+            Left / Right arrows = 1 thou<br>
+            Shift + arrow = 10 thou
+        </footer>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
